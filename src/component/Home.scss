@@ -1,0 +1,22 @@
+.flex{
+    display: flex;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.home{
+    &-container{
+        &-heading {
+            text-align: center;
+        }
+        &-list {
+            gap: 2rem;
+        }
+    }
+}
