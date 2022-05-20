@@ -15,8 +15,8 @@ const UserDetail = (props) => {
     }, [])
   return (
       <div>
-            <div className='user-detail-container'></div>
-                <div className='user-detail-container-inner flex flex-col'></div>
+            <div className='user-detail-container'><h1>Detail of User</h1></div>
+                <div className='user-detail-container-inner flex flex-col'>
                     {
                         userData && <>
                         <div>
@@ -51,9 +51,10 @@ const UserDetail = (props) => {
                             Company Name: <b>{userData.company.name}</b>
                         </div>
 
-
+                
                         </>
                     }
+                </div>    
       </div>
   )
 }

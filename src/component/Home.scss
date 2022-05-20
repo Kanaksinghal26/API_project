@@ -8,12 +8,16 @@
 
 .flex-wrap{
     flex-wrap: wrap;
+    padding: 5vh 5vw;
+    background-image: url('https://media.istockphoto.com/photos/server-abstract-background-illustration-3d-rendering-picture-id1314979727?b=1&k=20&m=1314979727&s=170667a&w=0&h=nXIryoF0Nq60gS6VySQ9K_3v0bHVSxquXxGubyFCl6g=');
+    background-size: contain;
 }
 
 .home{
     &-container{
         &-heading {
             text-align: center;
+            background-color: skyblue;
         }
         &-list {
             gap: 2rem;
@@ -23,11 +27,24 @@
 
 .user-detail {
     &-container{
+
+        text-align: center;
+        // background-color: skyblue;
+        // width: 30vw;
+        // margin: 0px auto;
         &-inner {
             padding: 20px;
             margin: 10px;
             gap: 3rem;
-            box-shadow: 10px 10px 10px black;
+            box-shadow: 10px 10px 10px blue, -10px -10px 10px blue;
+            height: 70vh;
+            width: 30vw;
+            margin: 5vh auto;
+            border-radius: 10px;
         }
     }
 }
+
+// box{
+//     background-color: rgba(255, 255, 255, 0.373);
+// }

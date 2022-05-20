@@ -21,6 +21,12 @@ export default function UserCard(props) {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
+      <Link to={'/user/${props.item.username}'}
+            state={{userData: props.item}}
+            // target={"_top"}
+
+
+            >
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Full Name: {props.item.name}
         </Typography>
@@ -34,14 +40,13 @@ export default function UserCard(props) {
         UserName: {props.item.phone}
           <br />
         </Typography>
+        </Link>
       </CardContent>
       <CardActions>
         <Button size="small">
-          <Link to={'/user/${props.item.username}'}
-            state={{userData: props.item}}
-            >
+          
               Learn More
-            </Link>
+            
         </Button>
       </CardActions>
     </Card>
