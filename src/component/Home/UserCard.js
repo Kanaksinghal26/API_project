@@ -13,7 +13,7 @@ const bull = (
     component="span"
     sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
   >
-    •
+    
   </Box>
 );
 
@@ -21,7 +21,7 @@ export default function UserCard(props) {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
-      <Link to={'/user/${props.item.username}'}
+      <Link to={`/user/${props.item.username}`}
             state={{userData: props.item}}
             // target={"_top"}
 
@@ -34,10 +34,10 @@ export default function UserCard(props) {
           UserName: {props.item.username}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        UserName: {props.item.email}
+        Email: {props.item.email}
         </Typography>
         <Typography variant="body2">
-        UserName: {props.item.phone}
+        PHone: {props.item.phone}
           <br />
         </Typography>
         </Link>

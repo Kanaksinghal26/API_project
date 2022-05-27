@@ -1,0 +1,87 @@
+
+
+.flex{
+    display: flex;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+    padding: 5vh 5vw;
+    background-size: contain;
+}
+
+.home{
+
+    background-image: url('https://media.istockphoto.com/photos/server-abstract-background-illustration-3d-rendering-picture-id1314979727?b=1&k=20&m=1314979727&s=170667a&w=0&h=nXIryoF0Nq60gS6VySQ9K_3v0bHVSxquXxGubyFCl6g=');
+
+    &-container{
+        &-heading {
+            text-align: center;
+            background-color: rgba(43, 9, 148, 0.453);
+            color: white;
+        }
+
+        &-search{
+            // display: flex;
+            // justify-content: center;
+            margin: 2vh auto;
+            box-shadow: rgba(85, 6, 243, 0.648) 0px 5px 15px;
+            border-radius: 10px;
+        }
+
+        &-list {
+            gap: 2rem;
+        }
+    }
+}
+
+.input-search{
+    // width: 25vw;
+    // height: 5vh;
+    // border-radius: 10px;
+    border: 0ch;
+    padding: 20px;
+    margin: 0 1vw;
+    color: red;
+    box-shadow: 0 0 10px 5px blue;
+}
+
+.user-detail {
+    background-image: url("https://wallpaperaccess.com/full/2697999.jpg");
+    height: 100vh;
+
+    &-container{
+
+        text-align: center;
+        margin: auto 0px;
+        // background-color: skyblue;
+        // width: 30vw;
+        // margin: 0px auto;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vh;
+
+        &-inner {
+            padding: 20px;
+            margin: 10px;
+            gap: 3rem;
+            box-shadow: 10px 10px 10px blue, -10px -10px 10px blue;
+            height: max-content;
+            width: 30vw;
+            margin: 5vh auto;
+            border-radius: 10px;
+            background-color: white;
+        }
+    }
+}
+
+// box{
+//     background-color: rgba(255, 255, 255, 0.373);
+// }
+
