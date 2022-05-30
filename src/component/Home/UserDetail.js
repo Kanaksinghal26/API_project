@@ -1,34 +1,47 @@
-
 import React, { useEffect, useState} from 'react'
 import { useLocation } from 'react-router-dom'
-// import GoogleMapReact from 'google-map-react';
-// import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { Link } from 'react-router-dom'
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+// import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import { deepOrange, deepPurple } from '@mui/material/colors';
+import 'react-toastify/dist/ReactToastify.css';
+import CreateUser from './CreateUser';
+
+
 
 const UserDetail = (props) => {
 
-    // const { isLoaded } = useLoadScript({
-    //     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-    // });
-
-
-
-    // if (!isLoaded) return <div>Baad me ana</div>;
-
-    // const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
-
+    const [weather, setWeather] = useState()
     const [userData, setUserData] = useState()
-
     const location = useLocation()
 
-    // const defaultProps = {
-    //     center: {
-    //         lat: 59.95,
-    //         lng: 30.33
-    //     },
-    //     zoom: 11
-    // };
+
+    const notify = ()=>{
+        toast.success('Succed', {autoClose:3000, position:"top-left", progress:undefined,})       // Set to 3sec 
+    }
+
+
+    const pullData = () => {
+        axios.get("https://jsonplaceholder.typice.com/users")
+        .then(res => {
+            setWeather(res.data)
+        })
+
+        .catch(err => {
+            console.log(err)
+
+        })    
+    }
 
     useEffect(() => {
+        
+
+        pullData()
+
+
 
         if (location.state) {
             setUserData(location.state.userData)
@@ -36,7 +49,6 @@ const UserDetail = (props) => {
     }, [])
 
     return (
-
         <div className='user-detail'>
             <div className='user-detail-container'><h1>Detail of User</h1></div>
             <div className='user-detail-container-inner flex flex-col'>
@@ -67,27 +79,46 @@ const UserDetail = (props) => {
                         </div>
 
                         <div>
-                            Full Address: <b>{userData.address.street}, {userData.address.suite}, {userData.address.city}, {userData.address.zipcode}</b>
+                            Full Address:
+                             <b>
+                                 <Link to={`/${userData.address.city}/detail`}
+                                    state={{cityName: userData.address.city}}>
+
+                                    {userData.address.street}, {userData.address.suite}, {userData.address.city}, {userData.address.zipcode}
+                                 </Link>
+                            </b>
                         </div>
 
                         <div>
                             Company Name: <b>{userData.company.name}</b>
                         </div>
 
-                    </>
+                        <div>
+                            {weather && weather}
+                        </div>
+                        
+                    </>		
                 }
-            </div>
+            </div>      
 
-            {/* <GoogleMap zoom={10} center={{lat: userData.address.geo.lat, lng: userData.address.geo.lng }} mapContainerClassName="map-container">
-
-                <Marker position={{lat: userData.address.geo.lat , lng: userData.address.geo.lng }} />
-            </GoogleMap> */}
-                   
+               
+                <ToastContainer
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
       </div >
   )
 
 
 }
+
 export default UserDetail
 
 

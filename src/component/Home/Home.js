@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Home.scss'
 import UserCard from './UserCard';
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link
+  } from "react-router-dom";
+  import { Button, ButtonGroup } from '@chakra-ui/react'
 
 const Home = () => {
 
@@ -43,12 +50,12 @@ const Home = () => {
 	
 	useEffect(() => {
 		fetchData()
-		
 	}, [])
 
 	const filterList =() => {
 		if(searchText){
-			return userList && userList.filter(ul => ul.username.toLowerCase().startsWith(searchText.toLowerCase()))
+			return userList && userList.filter(ul => ul.username
+				.toLowerCase().startsWith(searchText.toLowerCase()))
 		}
 		
 		else if(searchTextEmail){
@@ -71,7 +78,7 @@ const Home = () => {
 
 	// const filterListEmail =() => {
 	// 	if(searchText || searchTextEmail)
-	// 		return userList && userList.filter(ul => (ul.email.toLowerCase().startsWith(searchTextEmail?.toLowerCase()) && ul.username.toLowerCase().startsWith(searchText?.toLowerCase())))
+	// 		return userList && userList.filter(ul => (ul.email.toLowerCase().startsWith(searchTextEmail?.toLowerCase()) && ul.Object.keys.toLowerCase().startsWith(searchText?.toLowerCase())))
 	// 	return userList
 	// }
 
@@ -80,11 +87,10 @@ const Home = () => {
 			<div className='home-container flex flex-col'>
 			<div className='home-container-heading'><h1>List of users</h1></div>
 			<div className='home-container-search'>
+				<input onChange={handleSearchFullName} className="input-search" type="text" placeholder="Search by Full name" id='search4' />
 				<input onChange={handleSearch} className="input-search" type="search" placeholder="Search by username" id='search1' />
 				<input onChange={handleSearchEmail} className="input-search" type="search" placeholder="Search by email" id='search2' />
-				<input onChange={handleSearchPhone} className="input-search" type="number" placeholder="Search by phone" id='search2' />
-				<input onChange={handleSearchFullName} className="input-search" type="text" placeholder="Search by Full name" id='search2' />
-
+				<input onChange={handleSearchPhone} className="input-search" type="number" placeholder="Search by phone" id='search3' />
 			</div>
 			<div className='home-container-list flex flex-wrap' style={{gap: '2rem'}}>
 				{
@@ -98,6 +104,13 @@ const Home = () => {
 
 
 				}
+			</div>
+			<div id='linkPart'>
+			<Link to={'/createuser'}
+                                    >
+
+			<Button colorScheme='blue'>Button</Button>
+                                 </Link>
 			</div>
 			</div>
 		</div>
